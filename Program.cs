@@ -44,6 +44,7 @@ namespace Net5FeaturesTest
             Console.WriteLine($"Employee First Name: {employeeRecord1.FirstName}");
             Console.WriteLine($"Employee Last Name: {employeeRecord1.LastName}");
 
+            // Using the with keyword to make a copy of the employeeRecord1 and changing only the Id and FirstName properties
             var employeeRecord2 = employeeRecord1 with { Id = 4, FirstName = "Jane" };
             Console.WriteLine();
             Console.WriteLine("======== Employee Record 2 ========");
@@ -56,8 +57,8 @@ namespace Net5FeaturesTest
             // ==========================================
             var employeeRecord3 = new EmployeeRecord(Id: 3, FirstName: "Jon", LastName: "Doe");
             bool areEqual = employeeRecord1 == employeeRecord3;
-            Console.WriteLine($"Are Records equal? {areEqual}");
-            Console.WriteLine($"Are Hash Code Records equal? {employeeRecord1.GetHashCode() == employeeRecord3.GetHashCode()}");
+            Console.WriteLine($"Are Records equal? {areEqual}"); // True
+            Console.WriteLine($"Are Hash Code Records equal? {employeeRecord1.GetHashCode() == employeeRecord3.GetHashCode()}"); // True
 
             // ==========================================
             //             Compare Class Objects
@@ -65,7 +66,7 @@ namespace Net5FeaturesTest
             var employeeClass2 = new EmployeeClass(id: 1);
             employeeClass.FirstName = "Jon";
             employeeClass.LastName = "Doe";
-            Console.WriteLine($"Are Class objects equal? { employeeClass2 == employeeClass}");
+            Console.WriteLine($"Are Class objects equal? { employeeClass2 == employeeClass}"); // False
 
             // ==========================================
             //  Retaional Operators and Pattern Matching
@@ -92,6 +93,7 @@ namespace Net5FeaturesTest
             // ==========================================
             //             Target Typing
             // ==========================================
+            // Instantiate a person object using only the new keyword since the Type is already known.
             Person person = new("Tony", "Stark");
             Console.WriteLine();
             Console.WriteLine("======== Target Typing ========");
